@@ -1,0 +1,402 @@
+2026-11-19 22:50:51,110 | INFO | Cliente registrado: C01
+2026-11-19 22:50:51,110 | INFO | Operación 1 completada: Registrar cliente válido
+2026-11-19 22:50:51,111 | INFO | Finalizó la operación 1
+2026-11-19 22:50:51,111 | ERROR | Error en operación 2: Registrar cliente con correo inválido
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 581, in <lambda>
+    Cliente("C02", "Luis Gómez", "correo-invalido", "3011234567")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 141, in __init__
+    raise ErrorValidacion(
+        "El formato del correo no es válido."
+    )
+ErrorValidacion: El formato del correo no es válido.
+2026-11-19 22:50:51,115 | INFO | Finalizó la operación 2
+2026-11-19 22:50:51,116 | INFO | Cliente registrado: C02
+2026-11-19 22:50:51,116 | INFO | Operación 3 completada: Registrar otro cliente válido
+2026-11-19 22:50:51,116 | INFO | Finalizó la operación 3
+2026-11-19 22:50:51,116 | ERROR | Error en operación 4: Intentar registrar cliente duplicado
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 592, in <lambda>
+    lambda: sistema.registrar_cliente(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        Cliente("C01", "Ana Pérez", "ana@correo.com", "3001234567")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 489, in registrar_cliente
+    return self.__agregar(self.__clientes, cliente, Cliente)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 476, in __agregar
+    raise ErrorDuplicado(
+        f"El identificador {objeto.identificador} ya existe."
+    )
+ErrorDuplicado: El identificador C01 ya existe.
+2026-11-19 22:50:51,118 | INFO | Finalizó la operación 4
+2026-11-19 22:50:51,118 | INFO | Servicio registrado: S01
+2026-11-19 22:50:51,118 | INFO | Operación 5 completada: Crear sala válida
+2026-11-19 22:50:51,118 | INFO | Finalizó la operación 5
+2026-11-19 22:50:51,119 | INFO | Servicio registrado: S02
+2026-11-19 22:50:51,119 | INFO | Operación 6 completada: Crear equipo válido
+2026-11-19 22:50:51,119 | INFO | Finalizó la operación 6
+2026-11-19 22:50:51,119 | INFO | Servicio registrado: S03
+2026-11-19 22:50:51,119 | INFO | Operación 7 completada: Crear asesoría válida
+2026-11-19 22:50:51,119 | INFO | Finalizó la operación 7
+2026-11-19 22:50:51,121 | ERROR | Error en operación 8: Intentar crear servicio con tarifa negativa
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 617, in <lambda>
+    Sala("S04", "Sala inválida", -100, 10)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 248, in __init__
+    super().__init__(identificador, nombre, tarifa)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 179, in __init__
+    self.__tarifa = numero(tarifa, "Tarifa", estricto=True)
+                    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 89, in numero
+    raise ErrorValidacion(
+        f"{campo}: debe ser {operador} {minimo}."
+    )
+ErrorValidacion: Tarifa: debe ser mayor que 0.
+2026-11-19 22:50:51,123 | INFO | Finalizó la operación 8
+2026-11-19 22:50:51,124 | ERROR | Error inesperado en operación 9: Intentar crear cliente con datos faltantes
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 622, in <lambda>
+    lambda: Cliente("C03", "Carlos")
+            ~~~~~~~^^^^^^^^^^^^^^^^^
+TypeError: Cliente.__init__() missing 2 required positional arguments: 'correo' and 'telefono'
+2026-11-19 22:50:51,125 | INFO | Finalizó la operación 9
+2026-11-19 22:50:51,127 | INFO | Reserva registrado: R01
+2026-11-19 22:50:51,127 | INFO | Operación 10 completada: Crear reserva de sala
+2026-11-19 22:50:51,127 | INFO | Finalizó la operación 10
+2026-11-19 22:50:51,129 | INFO | Reserva R01 confirmada
+2026-11-19 22:50:51,129 | INFO | Operación 11 completada: Confirmar reserva R01
+2026-11-19 22:50:51,129 | INFO | Finalizó la operación 11
+2026-11-19 22:50:51,130 | INFO | Reserva registrado: R02
+2026-11-19 22:50:51,130 | INFO | Operación 12 completada: Crear otra reserva para la misma sala
+2026-11-19 22:50:51,131 | INFO | Finalizó la operación 12
+2026-11-19 22:50:51,132 | ERROR | Error en operación 13: Intentar confirmar un servicio ocupado
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 638, in <lambda>
+    lambda: sistema.confirmar_reserva("R02")
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 520, in confirmar_reserva
+    reserva.confirmar(self.__reservas)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 374, in confirmar
+    raise ErrorDisponibilidad(
+        "El servicio ya tiene una reserva confirmada."
+    )
+ErrorDisponibilidad: El servicio ya tiene una reserva confirmada.
+2026-11-19 22:50:51,136 | INFO | Finalizó la operación 13
+2026-11-19 22:50:51,137 | ERROR | Error en operación 14: Intentar reservar con duración negativa
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 642, in <lambda>
+    lambda: sistema.crear_reserva("R03", "C01", "S02", -2)
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 515, in crear_reserva
+    reserva = Reserva(identificador, cliente, servicio, duracion)
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 338, in __init__
+    horas = numero(duracion, "Duración", estricto=True)
+            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 89, in numero
+    raise ErrorValidacion(
+        f"{campo}: debe ser {operador} {minimo}."
+    )
+ErrorValidacion: Duración: debe ser mayor que 0.
+2026-11-19 22:50:51,139 | INFO | Finalizó la operación 14
+2026-11-19 22:50:51,140 | ERROR | Error en operación 15: Intentar reservar con cliente inexistente
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 646, in <lambda>
+    lambda: sistema.crear_reserva("R04", "C99", "S02", 2)
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 513, in crear_reserva
+    cliente = self.buscar_cliente(id_cliente)
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 498, in buscar_cliente
+    raise ErrorValidacion(f"No existe el cliente {identificador}.")
+ErrorValidacion: No existe el cliente C99.
+2026-11-19 22:50:51,142 | INFO | Finalizó la operación 15
+2026-11-19 22:50:51,143 | INFO | Terminó el intento de procesar R01
+2026-11-19 22:50:51,144 | ERROR | Error en operación 16: Intentar procesar con descuento inválido
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 401, in procesar
+    total = self.servicio.calcular_costo(
+        self.__duracion,
+        impuesto=impuesto,
+        descuento=descuento
+    )
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 209, in calcular_costo
+    raise ErrorValidacion(
+        "Impuesto y descuento deben estar entre 0 y 1."
+    )
+ErrorValidacion: Impuesto y descuento deben estar entre 0 y 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 650, in <lambda>
+    lambda: sistema.buscar_reserva("R01").procesar(descuento="1.50")
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 409, in procesar
+    raise ErrorReserva(
+    ...<2 lines>...
+    ) from error
+ErrorReserva: No se pudo procesar la reserva R01: Impuesto y descuento deben estar entre 0 y 1.
+2026-11-19 22:50:51,146 | INFO | Finalizó la operación 16
+2026-11-19 22:50:51,147 | INFO | Reserva R01 procesada por 107100.00
+2026-11-19 22:50:51,147 | INFO | Terminó el intento de procesar R01
+2026-11-19 22:50:51,147 | INFO | Operación 17 completada: Procesar R01 con impuesto y descuento
+2026-11-19 22:50:51,150 | INFO | Finalizó la operación 17
+2026-11-19 22:50:51,152 | ERROR | Error en operación 18: Intentar cancelar una reserva procesada
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 661, in <lambda>
+    lambda: sistema.buscar_reserva("R01").cancelar()
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 386, in cancelar
+    raise ErrorReserva(
+    ...<2 lines>...
+    )
+ErrorReserva: No se puede cancelar una reserva procesada o ya cancelada.
+2026-11-19 22:50:51,153 | INFO | Finalizó la operación 18
+2026-11-19 22:50:51,154 | INFO | Reserva R02 confirmada
+2026-11-19 22:50:51,155 | INFO | Operación 19 completada: Confirmar R02 con la sala disponible
+2026-11-19 22:50:51,155 | INFO | Finalizó la operación 19
+2026-11-19 22:50:51,156 | INFO | Reserva R02 cancelada
+2026-11-19 22:50:51,156 | INFO | Operación 20 completada: Cancelar R02
+2026-11-19 22:50:51,156 | INFO | Finalizó la operación 20
+2026-11-19 22:50:51,157 | INFO | Reserva registrado: R05
+2026-11-19 22:50:51,157 | INFO | Operación 21 completada: Crear reserva de equipo
+2026-11-19 22:50:51,158 | INFO | Finalizó la operación 21
+2026-11-19 22:50:51,160 | INFO | Reserva R05 confirmada
+2026-11-19 22:50:51,160 | INFO | Operación 22 completada: Confirmar reserva de equipo
+2026-11-19 22:50:51,160 | INFO | Finalizó la operación 22
+2026-11-19 22:50:51,162 | INFO | Reserva R05 procesada por 90000.00
+2026-11-19 22:50:51,162 | INFO | Terminó el intento de procesar R05
+2026-11-19 22:50:51,162 | INFO | Operación 23 completada: Procesar reserva de equipo
+2026-11-19 22:50:51,163 | INFO | Finalizó la operación 23
+2026-11-19 22:50:51,166 | INFO | Operación 24 completada: Calcular asesoría sin ajustes
+2026-11-19 22:50:51,167 | INFO | Finalizó la operación 24
+2026-11-19 22:50:51,168 | INFO | Operación 25 completada: Calcular asesoría con impuesto
+2026-11-19 22:50:51,169 | INFO | Finalizó la operación 25
+2026-11-19 22:50:51,170 | INFO | Operación 26 completada: Calcular asesoría con impuesto y descuento
+2026-11-19 22:50:51,171 | INFO | Finalizó la operación 26
+2026-11-19 22:50:51,185 | INFO | Simulación finalizada: 17 exitosas y 9 fallidas
+2026-11-19 23:23:54,746 | INFO | Cliente registrado: C01
+2026-11-19 23:23:54,755 | INFO | Operación 1 completada: Registrar cliente válido
+2026-11-19 23:23:54,756 | INFO | Finalizó la operación 1
+2026-11-19 23:23:54,761 | ERROR | Error en operación 2: Registrar cliente con correo inválido
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 581, in <lambda>
+    Cliente("C02", "Luis Gómez", "correo-invalido", "3011234567")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 141, in __init__
+    raise ErrorValidacion(
+        "El formato del correo no es válido."
+    )
+ErrorValidacion: El formato del correo no es válido.
+2026-11-19 23:23:54,819 | INFO | Finalizó la operación 2
+2026-11-19 23:23:54,819 | INFO | Cliente registrado: C02
+2026-11-19 23:23:54,820 | INFO | Operación 3 completada: Registrar otro cliente válido
+2026-11-19 23:23:54,826 | INFO | Finalizó la operación 3
+2026-11-19 23:23:54,827 | ERROR | Error en operación 4: Intentar registrar cliente duplicado
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 592, in <lambda>
+    lambda: sistema.registrar_cliente(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        Cliente("C01", "Ana Pérez", "ana@correo.com", "3001234567")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 489, in registrar_cliente
+    return self.__agregar(self.__clientes, cliente, Cliente)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 476, in __agregar
+    raise ErrorDuplicado(
+        f"El identificador {objeto.identificador} ya existe."
+    )
+ErrorDuplicado: El identificador C01 ya existe.
+2026-11-19 23:23:54,838 | INFO | Finalizó la operación 4
+2026-11-19 23:23:54,839 | INFO | Servicio registrado: S01
+2026-11-19 23:23:54,839 | INFO | Operación 5 completada: Crear sala válida
+2026-11-19 23:23:54,840 | INFO | Finalizó la operación 5
+2026-11-19 23:23:54,840 | INFO | Servicio registrado: S02
+2026-11-19 23:23:54,841 | INFO | Operación 6 completada: Crear equipo válido
+2026-11-19 23:23:54,841 | INFO | Finalizó la operación 6
+2026-11-19 23:23:54,842 | INFO | Servicio registrado: S03
+2026-11-19 23:23:54,843 | INFO | Operación 7 completada: Crear asesoría válida
+2026-11-19 23:23:54,843 | INFO | Finalizó la operación 7
+2026-11-19 23:23:54,848 | ERROR | Error en operación 8: Intentar crear servicio con tarifa negativa
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 617, in <lambda>
+    Sala("S04", "Sala inválida", -100, 10)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 248, in __init__
+    super().__init__(identificador, nombre, tarifa)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 179, in __init__
+    self.__tarifa = numero(tarifa, "Tarifa", estricto=True)
+                    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 89, in numero
+    raise ErrorValidacion(
+        f"{campo}: debe ser {operador} {minimo}."
+    )
+ErrorValidacion: Tarifa: debe ser mayor que 0.
+2026-11-19 23:23:54,854 | INFO | Finalizó la operación 8
+2026-11-19 23:23:54,856 | ERROR | Error inesperado en operación 9: Intentar crear cliente con datos faltantes
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 622, in <lambda>
+    lambda: Cliente("C03", "Carlos")
+            ~~~~~~~^^^^^^^^^^^^^^^^^
+TypeError: Cliente.__init__() missing 2 required positional arguments: 'correo' and 'telefono'
+2026-11-19 23:23:54,859 | INFO | Finalizó la operación 9
+2026-11-19 23:23:54,860 | INFO | Reserva registrado: R01
+2026-11-19 23:23:54,860 | INFO | Operación 10 completada: Crear reserva de sala
+2026-11-19 23:23:54,861 | INFO | Finalizó la operación 10
+2026-11-19 23:23:54,863 | INFO | Reserva R01 confirmada
+2026-11-19 23:23:54,864 | INFO | Operación 11 completada: Confirmar reserva R01
+2026-11-19 23:23:54,864 | INFO | Finalizó la operación 11
+2026-11-19 23:23:54,865 | INFO | Reserva registrado: R02
+2026-11-19 23:23:54,865 | INFO | Operación 12 completada: Crear otra reserva para la misma sala
+2026-11-19 23:23:54,866 | INFO | Finalizó la operación 12
+2026-11-19 23:23:54,867 | ERROR | Error en operación 13: Intentar confirmar un servicio ocupado
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 638, in <lambda>
+    lambda: sistema.confirmar_reserva("R02")
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 520, in confirmar_reserva
+    reserva.confirmar(self.__reservas)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 374, in confirmar
+    raise ErrorDisponibilidad(
+        "El servicio ya tiene una reserva confirmada."
+    )
+ErrorDisponibilidad: El servicio ya tiene una reserva confirmada.
+2026-11-19 23:23:54,876 | INFO | Finalizó la operación 13
+2026-11-19 23:23:54,878 | ERROR | Error en operación 14: Intentar reservar con duración negativa
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 642, in <lambda>
+    lambda: sistema.crear_reserva("R03", "C01", "S02", -2)
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 515, in crear_reserva
+    reserva = Reserva(identificador, cliente, servicio, duracion)
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 338, in __init__
+    horas = numero(duracion, "Duración", estricto=True)
+            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 89, in numero
+    raise ErrorValidacion(
+        f"{campo}: debe ser {operador} {minimo}."
+    )
+ErrorValidacion: Duración: debe ser mayor que 0.
+2026-11-19 23:23:54,883 | INFO | Finalizó la operación 14
+2026-11-19 23:23:54,885 | ERROR | Error en operación 15: Intentar reservar con cliente inexistente
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 646, in <lambda>
+    lambda: sistema.crear_reserva("R04", "C99", "S02", 2)
+            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 513, in crear_reserva
+    cliente = self.buscar_cliente(id_cliente)
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 498, in buscar_cliente
+    raise ErrorValidacion(f"No existe el cliente {identificador}.")
+ErrorValidacion: No existe el cliente C99.
+2026-11-19 23:23:54,887 | INFO | Finalizó la operación 15
+2026-11-19 23:23:54,890 | INFO | Terminó el intento de procesar R01
+2026-11-19 23:23:54,890 | ERROR | Error en operación 16: Intentar procesar con descuento inválido
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 401, in procesar
+    total = self.servicio.calcular_costo(
+        self.__duracion,
+        impuesto=impuesto,
+        descuento=descuento
+    )
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 209, in calcular_costo
+    raise ErrorValidacion(
+        "Impuesto y descuento deben estar entre 0 y 1."
+    )
+ErrorValidacion: Impuesto y descuento deben estar entre 0 y 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 650, in <lambda>
+    lambda: sistema.buscar_reserva("R01").procesar(descuento="1.50")
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 409, in procesar
+    raise ErrorReserva(
+    ...<2 lines>...
+    ) from error
+ErrorReserva: No se pudo procesar la reserva R01: Impuesto y descuento deben estar entre 0 y 1.
+2026-11-19 23:23:54,898 | INFO | Finalizó la operación 16
+2026-11-19 23:23:54,898 | INFO | Reserva R01 procesada por 107100.00
+2026-11-19 23:23:54,899 | INFO | Terminó el intento de procesar R01
+2026-11-19 23:23:54,899 | INFO | Operación 17 completada: Procesar R01 con impuesto y descuento
+2026-11-19 23:23:54,901 | INFO | Finalizó la operación 17
+2026-11-19 23:23:54,905 | ERROR | Error en operación 18: Intentar cancelar una reserva procesada
+Traceback (most recent call last):
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 531, in ejecutar_operacion
+    resultado = accion()
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 661, in <lambda>
+    lambda: sistema.buscar_reserva("R01").cancelar()
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\semestre 3\programacion\software-reto-4\main.py", line 386, in cancelar
+    raise ErrorReserva(
+    ...<2 lines>...
+    )
+ErrorReserva: No se puede cancelar una reserva procesada o ya cancelada.
+2026-11-19 23:23:54,906 | INFO | Finalizó la operación 18
+2026-11-19 23:23:54,908 | INFO | Reserva R02 confirmada
+2026-11-19 23:23:54,908 | INFO | Operación 19 completada: Confirmar R02 con la sala disponible
+2026-11-19 23:23:54,908 | INFO | Finalizó la operación 19
+2026-11-19 23:23:54,910 | INFO | Reserva R02 cancelada
+2026-11-19 23:23:54,910 | INFO | Operación 20 completada: Cancelar R02
+2026-11-19 23:23:54,910 | INFO | Finalizó la operación 20
+2026-11-19 23:23:54,911 | INFO | Reserva registrado: R05
+2026-11-19 23:23:54,912 | INFO | Operación 21 completada: Crear reserva de equipo
+2026-11-19 23:23:54,914 | INFO | Finalizó la operación 21
+2026-11-19 23:23:54,916 | INFO | Reserva R05 confirmada
+2026-11-19 23:23:54,916 | INFO | Operación 22 completada: Confirmar reserva de equipo
+2026-11-19 23:23:54,917 | INFO | Finalizó la operación 22
+2026-11-19 23:23:54,919 | INFO | Reserva R05 procesada por 90000.00
+2026-11-19 23:23:54,919 | INFO | Terminó el intento de procesar R05
+2026-11-19 23:23:54,920 | INFO | Operación 23 completada: Procesar reserva de equipo
+2026-11-19 23:23:54,920 | INFO | Finalizó la operación 23
+2026-11-19 23:23:54,921 | INFO | Operación 24 completada: Calcular asesoría sin ajustes
+2026-11-19 23:23:54,922 | INFO | Finalizó la operación 24
+2026-11-19 23:23:54,923 | INFO | Operación 25 completada: Calcular asesoría con impuesto
+2026-11-19 23:23:54,924 | INFO | Finalizó la operación 25
+2026-11-19 23:23:54,925 | INFO | Operación 26 completada: Calcular asesoría con impuesto y descuento
+2026-11-19 23:23:54,926 | INFO | Finalizó la operación 26
+2026-11-19 23:23:54,939 | INFO | Simulación finalizada: 17 exitosas y 9 fallidas
